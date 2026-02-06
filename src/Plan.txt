@@ -1,0 +1,48 @@
+This V1 of the MonoJ programming language
+
+name is monoJ because i want to create new language but i dont have exe to create new compiler.
+so i'm going to use java's compiler but i will create my own transpiler .
+
+goal of this programming language are :
+    easy to write
+    dont focus on syntax too much
+    very easy to understand
+    people should treat it like java jr(lol)
+
+
+goal for this first version :
+    name of the language
+    extension(mj,jr,jpp,jjr) i dont know yet
+    first variable type(may be int or string)
+    basic syntax (i have no idea right now haha)
+    print syntax (show , paste , give , output or somethings else)
+    input syntax (take , get , input , copy or somethings else)
+
+process that im thinking of now
+    our language ---> our transpiler --> javac(im thinking may be some other lang)--> jvm (after the bytecode)
+
+
+why javac ??
+    right now im know java the best and i think i can do it in only java(lol)
+
+will i regrate it ?
+    yes , but that is for future saurav .
+
+why will i regrate it ?
+    our goal with monoJ is to create simple lang using java .
+    and simple lang means dynamic but converting all the syntax from monoj to java will be hard and
+    variable type converting will be the hardest since im using dynamic variable in monoJ and we all know how easy it is in java
+
+For v2
+    lets hope V1 works first lol.
+
+
+
+
+
+
+
+
+
+
+
