@@ -8,10 +8,10 @@ import java.util.List;
 import static java.lang.Character.isDigit;
 
 public class Lexer {
-    public void makeToken(String value) {
+    public ArrayList<Token> makeToken(String value) {
 //        System.out.println("Tokenizing: " + value);
         char[] chars = value.toCharArray();
-        List<Token> tokenList = new ArrayList<>();
+        ArrayList<Token> tokenList = new ArrayList<>();
 //        StringBuffer sb = new StringBuffer();
         for (int i = 0; i < chars.length; i++) {
             char c = chars[i];
@@ -54,14 +54,12 @@ public class Lexer {
                 System.out.println();
             } else {
                 System.err.println("Unknown token at index " + i);
-                return;
+                throw new RuntimeException("Unknown token at index " + i);
             }
         }
 
-        Parser parser = new Parser();
-        parser.parse((ArrayList<Token>) tokenList);
+        return tokenList;
 
-//        System.out.println(tokenList);
     }
 
     static String stringLiteral(String value, int index) {

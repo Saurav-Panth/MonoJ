@@ -10,5 +10,4 @@ public enum TokenType {
     STRING_LITERAL,
     ASSIGN,
     EOF
-
     }

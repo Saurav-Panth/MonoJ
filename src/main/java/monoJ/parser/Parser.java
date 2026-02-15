@@ -8,9 +8,9 @@ import java.util.List;
 
 
 public class Parser {
-    public void parse(ArrayList<Token> tokenList){
-        System.out.println("Parsing tokens: " + tokenList);
-        List<String> statement = new ArrayList<>();
+    public ArrayList<String> parse(ArrayList<Token> tokenList){
+//        System.out.println("Parsing tokens: " + tokenList);
+        ArrayList<String> statement = new ArrayList<>();
         
 //        System.out.println(tokenList.get(0).getType());
         for (int i = 0; i < tokenList.size(); i++) {
@@ -24,7 +24,7 @@ public class Parser {
                     }
                     else {
                         System.err.println("monoJ Syntax error  " + currentToken);
-                        return;
+                        throw new RuntimeException("monoJ Syntax error  " + currentToken);
                     }
                     i=i+3;
                 }
@@ -43,16 +43,15 @@ public class Parser {
                         }
                         else {
                             System.err.println("monoJ Syntax error  " + currentToken);
-                            return;
+                            throw new RuntimeException("monoJ Syntax error  " + currentToken);
                         }
                     i=i+1;
                 }
                 else {
                     System.err.println("monoJ Syntax error  " + currentToken);
-                    return;
+                    throw new RuntimeException("monoJ Syntax error  " + currentToken);
                 }
         }
-        JavaGenerator javaGenerator = new JavaGenerator();
-        String javaCode = javaGenerator.monojTJava(statement);
+        return statement;
     }
 }
