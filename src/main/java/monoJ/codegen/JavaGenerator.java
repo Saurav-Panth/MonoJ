@@ -9,13 +9,22 @@ public class JavaGenerator {
         javaCode.append("public class MonoRun {\n");
         javaCode.append("    public static void main(String[] args) {\n");
         javaCode.append("Scanner scanner = new Scanner(System.in);\n");
+
         for (String statement : statements) {
             String[] parts = statement.split(":::");
-            if (parts[0].equals("number")) {
+            if(parts[0].equals("take") && parts[1].equals("number")){
+                javaCode.append("        System.out.print(\"Enter a number for ").append(parts[2]).append(": \");\n");
+                javaCode.append("        Integer ").append(parts[2]).append(" = scanner.nextInt();\n");
+            }
+            else if(parts[0].equals("take") && parts[1].equals("string")){
+                javaCode.append("        System.out.print(\"Enter a string for ").append(parts[2]).append(": \");\n");
+                javaCode.append("        String ").append(parts[2]).append(" = scanner.nextLine();\n");
+            }
+            else if (parts[0].equals("number")) {
                 javaCode.append("        Integer ").append(parts[1]).append(" = ").append(parts[3]).append(";\n");
             }
 
-            else if (parts[0].equals("String")) {
+            else if (parts[0].equals("string")) {
                 javaCode.append("        String ")
                         .append(parts[1])
                         .append(" = \"")

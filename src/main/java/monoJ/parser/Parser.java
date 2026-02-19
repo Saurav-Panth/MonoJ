@@ -19,8 +19,14 @@ public class Parser {
                     if(currentToken.getType()== TokenType.NUMBER_TYPE && i+3<tokenList.size() && tokenList.get(i+1).getType()==TokenType.IDENTIFIER && tokenList.get(i+2).getType()==TokenType.ASSIGN && tokenList.get(i+3).getType()==TokenType.NUMBER_LITERAL){
                         statement.add("number"+":::"+tokenList.get(i+1).getValue()+":::"+tokenList.get(i+2).getValue()+":::"+tokenList.get(i+3).getValue());
                     }
+                    else if(currentToken.getType()== TokenType.NUMBER_TYPE && i+3<tokenList.size() && tokenList.get(i+1).getType()==TokenType.IDENTIFIER && tokenList.get(i+2).getType()==TokenType.ASSIGN && tokenList.get(i+3).getType()==TokenType.TAKE){
+                        statement.add("take"+":::"+"number"+":::"+tokenList.get(i+1).getValue());
+                    }
+                    else if(currentToken.getType()== TokenType.STRING_TYPE && i+3<tokenList.size() && tokenList.get(i+1).getType()==TokenType.IDENTIFIER && tokenList.get(i+2).getType()==TokenType.ASSIGN && tokenList.get(i+3).getType()==TokenType.TAKE){
+                        statement.add("take"+":::"+"string"+":::"+tokenList.get(i+1).getValue());
+                    }
                     else if(currentToken.getType()== TokenType.STRING_TYPE && i+3<tokenList.size() && tokenList.get(i+1).getType()==TokenType.IDENTIFIER && tokenList.get(i+2).getType()==TokenType.ASSIGN && tokenList.get(i+3).getType()==TokenType.STRING_LITERAL){
-                        statement.add("String"+":::"+tokenList.get(i+1).getValue()+":::"+tokenList.get(i+2).getValue()+":::"+tokenList.get(i+3).getValue());
+                        statement.add("string"+":::"+tokenList.get(i+1).getValue()+":::"+tokenList.get(i+2).getValue()+":::"+tokenList.get(i+3).getValue());
                     }
                     else {
                         System.err.println("monoJ Syntax error  " + currentToken);

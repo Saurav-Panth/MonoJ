@@ -22,6 +22,7 @@ class Main {
         Parser pa = new Parser();
         ArrayList<String> parsed =pa.parse(tokenizer);
 
+//        System.out.println(parsed);
         JavaGenerator jg = new JavaGenerator();
         String javaCode = jg.monojTJava(parsed);
 
@@ -35,7 +36,7 @@ class Main {
             Process compileProcess = compile.start();
             int compileResult = compileProcess.waitFor();
 
-            System.out.println("Compile exit code: " + compileResult);
+            System.out.println("MonoJ compiled code: " + compileResult);
 
             if (compileResult != 0) {
                 System.out.println("Compilation failed.");
